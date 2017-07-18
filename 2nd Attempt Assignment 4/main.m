@@ -14,15 +14,21 @@
 
 -(void) largeNumMethod : (NSArray *) arr ;
 {
-  
-    NSNumber *Number = @0;
-    for (NSNumber *randomNum in arr) {
-        if ([randomNum isGreaterThan:Number]) {
-            Number = randomNum;
+   
+     NSInteger i = 0;
+     NSInteger largestNum = [arr[i] integerValue];
+    
+    for ( i = 0 ; i < [arr count]  ; i++)
+    {
+        if ( [arr[i] integerValue] > largestNum  )
+        {
+            largestNum = [ arr[i] integerValue ];
         }
+    
     }
-    NSLog(@"The largest number in the array is : %@", Number );
+    NSLog(@"The largest number in the array is : %ld", (long)largestNum);
 }
+    
 @end
 
 
@@ -30,7 +36,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
         
-        NSArray *array = @[@44, @5, @6];
+        NSArray *array = @[@-44, @-5, @-6];
         SampleClass *sampleclass = [[SampleClass alloc] init];
         [sampleclass largeNumMethod:array];
         
@@ -39,3 +45,4 @@ int main(int argc, const char * argv[]) {
     }
     return 0;
 }
+   
